@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "wortenia:raw_gold"
+  },
+  "result": "wortenia:gold",
+  "experience": 0.35,
+  "cookingtime": 200
+}
