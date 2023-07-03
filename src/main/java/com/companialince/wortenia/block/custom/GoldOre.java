@@ -1,5 +1,6 @@
 package com.companialince.wortenia.block.custom;
 
+import com.companialince.wortenia.Wortenia;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,9 +14,10 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class GoldOre extends Block {
+
     private final int minTimeSeconds = 60;
     private final int maxTimeSeconds = 5 * 60; // 5 minutes
-    private int respawnTime = new Random().nextInt((maxTimeSeconds - minTimeSeconds) + 1) + minTimeSeconds;
+    private final int respawnTime = new Random().nextInt((maxTimeSeconds - minTimeSeconds) + 1) + minTimeSeconds;
 
     public GoldOre(Block.Properties properties) {
         super(properties);
@@ -27,11 +29,15 @@ public class GoldOre extends Block {
         pPlayer.causeFoodExhaustion(0.005F);
         dropResources(pState, pLevel, pPos, pTe, pPlayer, pStack);
         if (!pLevel.isClientSide) {
-            // Wait a some random seconds before respawning the ore
+            // Wait the respawn time before respawning the block
             new Thread(() -> {
                 try {
-                    Thread.sleep(respawnTime * 1000);
-                    pLevel.setBlock(pPos, pState, 2);
+                    Thread.sleep(respawnTime * 1000L);
+                    try {
+                        pLevel.setBlock(pPos, pState, 2);
+                    } catch (Exception e) {
+                        Wortenia.LOGGER.info("Respawning block on " + pPos.toString());
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

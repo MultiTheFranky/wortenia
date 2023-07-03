@@ -1,0 +1,10 @@
+{
+  "wortenia": {
+    "sounds": [
+      {
+        "name": "wortenia:wortenia",
+        "stream": true
+      }
+    ]
+  }
+}

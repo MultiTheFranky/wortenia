@@ -12,6 +12,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.function.Supplier;
 
@@ -20,6 +21,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> GOLD_BLOCK = registerBlock("gold_block",
             () -> new Block(Block.Properties.of(Material.METAL).strength(9f).requiresCorrectToolForDrops().harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(2)));
+    public static final RegistryObject<Block> GRAVEL_BLOCK = registerBlock("gravel_block",
+            () -> new Block(Block.Properties.copy(net.minecraft.block.Blocks.GRAVEL)));
     public static final RegistryObject<Block> ORE_GOLD_BLOCK = registerBlock("ore_gold_block",
             () -> new GoldOre(Block.Properties.of(Material.METAL).strength(9f).requiresCorrectToolForDrops().harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(2)));
 

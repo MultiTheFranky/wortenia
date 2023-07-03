@@ -3,5 +3,8 @@
   "item.wortenia.raw_gold": "Raw Gold",
   "item.wortenia.gold": "Gold",
   "block.wortenia.gold_block": "Gold Block",
+  "block.wortenia.gravel_block": "Gravel Block",
+  "item.wortenia.wortenia_music_disk": "Wortenia Music Disk",
+  "item.wortenia.wortenia_music_disk.desc": "Wortenia Music Disk Soundtrack",
   "itemGroup.wortenia": "Wortenia"
 }
