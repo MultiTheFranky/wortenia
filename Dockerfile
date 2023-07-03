@@ -20,7 +20,7 @@ RUN apt-get -qq update && \
     dpkg -i zulu-repo_${ZULU_REPO_VER}_all.deb && \
     apt-get -qq update && \
     echo "Package: zulu17-*\nPin: version 17.0.7-*\nPin-Priority: 1001" > /etc/apt/preferences && \
-    apt-get -qq -y --no-install-recommends install zulu17-fx-jdk=17.0.7-* && \
+    apt-get -qq -y --no-install-recommends install zulu17-jdk-fx=17.0.7-* && \
     apt-get -qq -y purge --auto-remove gnupg software-properties-common curl && \
     rm -rf /var/lib/apt/lists/* zulu-repo_${ZULU_REPO_VER}_all.deb
 
