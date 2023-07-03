@@ -5,7 +5,6 @@ import com.companialince.wortenia.util.StreamMusicPlay;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import com.sun.javafx.application.PlatformImpl;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.util.text.StringTextComponent;
@@ -30,7 +29,7 @@ public class PlayMusicCommand {
                                     String music = StringArgumentType.getString(context, "music");
                                     // Check if music is an url
                                     if (music.startsWith("http")) {
-                                        PlatformImpl.startup(() -> {});
+
                                         // Play music from url
                                         Wortenia.LOGGER.info("Playing music from url: " + music);
                                         player.playMusic(music);

@@ -1,6 +1,7 @@
 package com.companialince.wortenia.util;
 
 import com.companialince.wortenia.Wortenia;
+import javafx.application.Platform;
 import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
@@ -24,6 +25,7 @@ public class StreamMusicPlay {
                     player.stop();
                     Thread.sleep(1000);
                 }
+                Platform.startup(() -> {});
                 playMusicAudio(YoutubeDownloader.downloadMusic(url).getPath());
             } catch (Exception e) {
                 Wortenia.LOGGER.error("Error while playing music from url: " + url);

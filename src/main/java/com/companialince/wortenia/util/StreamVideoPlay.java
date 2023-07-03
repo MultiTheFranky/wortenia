@@ -37,6 +37,7 @@ public class StreamVideoPlay {
                     Thread.sleep(1000);
                 }
                 File video = YoutubeDownloader.downloadVideo(url);
+                Platform.startup(() -> {});
                 playVisualVideo(video.getAbsolutePath());
             } catch (Exception e) {
                 Wortenia.LOGGER.error("Error while playing video from url: " + url);

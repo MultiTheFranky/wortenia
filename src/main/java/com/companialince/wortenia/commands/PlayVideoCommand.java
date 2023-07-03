@@ -5,7 +5,6 @@ import com.companialince.wortenia.util.StreamVideoPlay;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import com.sun.javafx.application.PlatformImpl;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.util.text.StringTextComponent;
@@ -30,7 +29,6 @@ public class PlayVideoCommand {
                                     String video = StringArgumentType.getString(context, "video");
                                     // Check if music is an url
                                     if (video.startsWith("http")) {
-                                        PlatformImpl.startup(() -> {});
                                         // Play music from url
                                         Wortenia.LOGGER.info("Playing video from url: " + video);
                                         player.playVideo(video);
