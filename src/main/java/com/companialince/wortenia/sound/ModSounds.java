@@ -1,25 +1,27 @@
 package com.companialince.wortenia.sound;
 
 import com.companialince.wortenia.Wortenia;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+
 
 public class ModSounds {
-    public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Wortenia.MOD_ID);
+    public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
+            DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Wortenia.MOD_ID);
 
-    public static final RegistryObject<SoundEvent> WORTENIA = registerSoundEvent("wortenia");
+    public static final RegistryObject<SoundEvent> WORTENIA = registerSoundEvents("wortenia");
 
-    private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
-        return SOUNDS.register(name, () -> new SoundEvent(new ResourceLocation(Wortenia.MOD_ID, name)));
+    private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
+        return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Wortenia.MOD_ID, name)));
     }
 
     public static void register(IEventBus eventBus) {
-        SOUNDS.register(eventBus);
+        SOUND_EVENTS.register(eventBus);
     }
-
-
 }
